@@ -38,15 +38,15 @@ public class MysqlParser extends AbstractParser {
     public String getPageSql(String sql) {
         StringBuilder sqlBuilder = new StringBuilder(sql.length() + 14);
         sqlBuilder.append(sql);
-        sqlBuilder.append(" limit ?,?");
+        sqlBuilder.append(" LIMIT ? OFFSET ?");
         return sqlBuilder.toString();
     }
 
     @Override
     public Map<String, Object> setPageParameter(MappedStatement ms, Object parameterObject, BoundSql boundSql, Page<?> page) {
         Map<String, Object> paramMap = super.setPageParameter(ms, parameterObject, boundSql, page);
-        paramMap.put(PAGEPARAMETER_FIRST, page.getStartRow());
-        paramMap.put(PAGEPARAMETER_SECOND, page.getPageSize());
+        paramMap.put(PAGEPARAMETER_FIRST, page.getPageSize());
+        paramMap.put(PAGEPARAMETER_SECOND, page.getStartRow());
         return paramMap;
     }
 }

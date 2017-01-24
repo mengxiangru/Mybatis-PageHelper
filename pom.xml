@@ -27,8 +27,8 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.github.pagehelper</groupId>
-    <artifactId>pagehelper</artifactId>
-    <version>4.1.1</version>
+    <artifactId>jimu-pagehelper</artifactId>
+    <version>4.1.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>pagehelper</name>
@@ -42,12 +42,6 @@
         </license>
     </licenses>
 
-    <developers>
-        <developer>
-            <name>abel533</name>
-            <email>abel533@gmail.com</email>
-        </developer>
-    </developers>
 
     <scm>
         <connection>scm:git:git@github.com:pagehelper/Mybatis-PageHelper.git</connection>
@@ -203,16 +197,19 @@
                     </plugin>
                 </plugins>
             </build>
-            <distributionManagement>
-                <snapshotRepository>
-                    <id>oss</id>
-                    <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
-                </snapshotRepository>
-                <repository>
-                    <id>oss</id>
-                    <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-                </repository>
-            </distributionManagement>
         </profile>
     </profiles>
+
+    <distributionManagement>
+        <repository>
+            <id>jmb-release</id>
+            <name>jimubox release repository</name>
+            <url>http://maven.jimubox.com/nexus/content/repositories/releases/</url>
+        </repository>
+        <snapshotRepository>
+            <id>jmb-snapshot</id>
+            <name>jimubox snapshot repository</name>
+            <url>http://maven.jimubox.com/nexus/content/repositories/snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
 </project>
